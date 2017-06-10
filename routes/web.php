@@ -11,6 +11,7 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'FilmesController@index');
+Route::post('/', 'FilmesController@store');
+Route::put('/', 'FilmesController@update');
+Route::delete('/', 'FilmesController@delete');
