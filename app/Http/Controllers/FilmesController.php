@@ -13,6 +13,11 @@ Class FilmesController extends Controller {
     return response()->json($filmes);
   }
 
+  public function get($id){
+    $filme = Filmes::find($id);
+    return response()->json($filme);
+  }
+
   public function store(Request $request){
 
     $input = [
@@ -27,21 +32,21 @@ Class FilmesController extends Controller {
     return response()->json($filme);
   }
 
-  public function update(Request $request){
+  public function update(Request $request, $id){
 
     $input = [
       'titulo' => $request->input('titulo'),
       'descricao' => $request->input('descricao')
     ];
 
-    $filme = Filmes::whereId($request->input('id'));
+    $filme = Filmes::whereId($id);
     $filme->update($input);
 
     return response()->json($filme);
   }
 
-  public function delete(Request $request){
-    $filme = Filmes::whereId($request->input('id'));
+  public function delete($id){
+    $filme = Filmes::whereId($id);
     $filme->delete();
 
     return response()->json($filme);

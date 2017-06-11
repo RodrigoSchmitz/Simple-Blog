@@ -12,6 +12,7 @@
 */
 
 Route::get('/', 'FilmesController@index');
+Route::get('/{id}', 'FilmesController@get');
 Route::post('/', 'FilmesController@store');
-Route::put('/', 'FilmesController@update');
-Route::delete('/', 'FilmesController@delete');
+Route::put('/{id}', 'FilmesController@update');
+Route::delete('/{id}', 'FilmesController@delete');
